@@ -1,0 +1,31 @@
+﻿@model Trainer
+
+<h2 class="mt-5">Create Trainer</h2>
+
+<form method="post" class="mt-4">
+    <div class="mb-3">
+        <label asp-for="FirstName" class="mb-1"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="mb-1"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Subject" class="mb-1"></label>
+        <input asp-for="Subject" class="form-control" />
+        <span asp-validation-for="Subject" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width: 150px;">
+        Create
+    </button>
+    <a asp-controller="Trainer" asp-action="Index" class="btn btn-secondary" style="width: 150px;">
+        Back to list
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

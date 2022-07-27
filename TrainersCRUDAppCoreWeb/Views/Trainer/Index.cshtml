@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Trainer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row pt-4">
+    <div class="col-6">
+        <h2>Trainers list</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a asp-controller="Trainer" asp-action="Create" class="btn btn-primary">
+            Add New Trainer
+        </a>
+    </div>
+</div>
+
+
+<table class="table table-bordered table-striped mt-4" style="width: 100%">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Subject</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="20%" style="vertical-align: middle">
+                    @obj.FirstName
+                </td>
+                <td width="20%" style="vertical-align: middle">
+                    @obj.LastName
+                </td>
+                <td width="40%" style="vertical-align: middle">
+                    @obj.Subject
+                </td>
+                <td width="20%" style="vertical-align: middle">
+                    <a asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary m-1">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger m-1">Delete</a>
+                </td>
+            </tr>
+        } 
+    </tbody>
+</table>
